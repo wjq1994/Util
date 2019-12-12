@@ -4,7 +4,7 @@ export const emptyObject = Object.freeze({})
  * Objects from primitive values when we know the value
  * is a JSON-compliant type.
  */
-export function isObject {
+export function isObject(obj) {
   return obj !== null && typeof obj === 'object'
 }
 
