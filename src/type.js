@@ -11,9 +11,9 @@ export function isObject(obj) {
 /**
  * Get the raw type string of a value, e.g., [object Object].
  */
-const _toString = Object.prototype.toString
+const _toString = Object.prototype.toString;
 
-export function toRawType {
+export function toRawType(value) {
   return _toString.call(value).slice(8, -1)
 }
 
@@ -21,10 +21,21 @@ export function toRawType {
  * Strict object type check. Only returns true
  * for plain JavaScript objects.
  */
-export function isPlainObject {
+export function isPlainObject(obj) {
   return _toString.call(obj) === '[object Object]'
 }
 
-export function isRegExp {
-  return _toString.call(v) === '[object RegExp]'
+export function isRegExp(obj) {
+  return _toString.call(obj) === '[object RegExp]'
+}
+
+/**
+ * 是否能转换为Number
+ * @param {string | number} obj 
+ */
+export function isNumber(obj) {
+  if(obj === null || obj === undefined || typeof obj === "boolean") {
+    return false;
+  }
+  return !Number.isNaN(Number(obj));
 }
